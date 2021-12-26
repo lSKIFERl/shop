@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content_title %}
+    Products "{{ category.name }}"
+{% endblock %}
+
+{% block content %}
+    {% if products %}
+    {% for product in products %}
+        <p><a class="text-white fs-4" href="{% url 'product_detail' product.id %}">{{ product.name }}</a></p>
+    {% endfor %}
+    {% else %}
+        <p class="text-white fs-4">There are no products of the selected category</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content_title %}
+    Product description
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h3>{{ product.name }}</h3>
+    </div>
+    {% if images %}
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.product.name }}" width="300px" height="300px"/>
+        {% endfor %}
+    {% else %}
+        <p class="py-5">No image</p>
+    {% endif %}
+
+    <p>Category: {{ product.category.name }}</p>
+
+    <p class="fs-5">Price: {{ product.price }}$</p>
+
+    <p class="fs-5">Description:</p>
+    <p>{{ product.description }}</p>
+
+{% endblock %}
